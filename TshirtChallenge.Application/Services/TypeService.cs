@@ -1,5 +1,7 @@
-﻿using TshirtChallenge.Application.Models.TypeModel;
+﻿using TshirtChallenge.Application.Models.ImageModel;
+using TshirtChallenge.Application.Models.TypeModel;
 using TshirtChallenge.Application.Services.Interfaces;
+using TshirtChallenge.Domain.Entities;
 using TshirtChallenge.Domain.Interfaces.Repositories;
 
 namespace TshirtChallenge.Application.Services
@@ -16,16 +18,22 @@ namespace TshirtChallenge.Application.Services
         {
             var types = await _typeRepository.GetTypesByTshirtId(tshirtId);
 
-            return types.Select(type => new TypeResponseModel(
-                type.Color,
-                type.Fabric,
-                ConvertImageToBase64(type.TshirtImages.FirstOrDefault(x => x.TypeId == type.Id)?.Data)
-            ));
+            return types.Select(type =>
+            {
+                return new TypeResponseModel(
+                    type.Id,
+                    type.Color,
+                    type.Fabric,
+                    GetImageResponseModelList(type.Images)
+                );
+            });
         }
 
-        private string? ConvertImageToBase64(byte[]? data)
+        private List<ImageResponseModel> GetImageResponseModelList(List<Image> images)
         {
-            return data != null ? Convert.ToBase64String(data) : null;
+            return images.Select(image => new ImageResponseModel(image.Id, ConvertImageToBase64(image.Data))).ToList();
         }
+
+        private string? ConvertImageToBase64(byte[] data) => data != null ? Convert.ToBase64String(data) : null;
     }
 }

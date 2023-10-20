@@ -1,16 +1,20 @@
-﻿namespace TshirtChallenge.Application.Models.TypeModel
+﻿using TshirtChallenge.Application.Models.ImageModel;
+
+namespace TshirtChallenge.Application.Models.TypeModel
 {
     public class TypeResponseModel
     {
+        public Guid Id { get; set; }
         public string Color { get; set; }
         public string Fabric { get; set; }
-        public string? ImageBase64 { get; set; }
+        public List<ImageResponseModel> Images { get; set; }
 
-        public TypeResponseModel(string color, string fabric, string? imageBase64)
+        public TypeResponseModel(Guid id, string color, string fabric, List<ImageResponseModel> images)
         {
+            Id = id;
             Color = color;
             Fabric = fabric;
-            ImageBase64 = imageBase64;
+            Images = images;
         }
     }
 }
