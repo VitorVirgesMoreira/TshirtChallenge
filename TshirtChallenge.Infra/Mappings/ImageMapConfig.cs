@@ -20,7 +20,7 @@ namespace TshirtChallenge.Infra.Mappings
                 .IsRequired();
 
             builder.HasOne(e => e.Type)
-                .WithMany(e => e.TshirtImages)
+                .WithMany(e => e.Images)
                 .HasForeignKey(e => e.TypeId)
                 .IsRequired();
         }

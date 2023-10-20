@@ -11,7 +11,7 @@ namespace TshirtChallenge.Domain.Entities
         public virtual Type Type { get; set; }
 
         [NotMapped]
-        protected override IValidator _validator => new TshirtImageValidation();
+        protected override IValidator _validator => new ImageValidation();
 
         public Image(byte[] data, Guid typeId) : base()
         {

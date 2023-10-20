@@ -3,9 +3,9 @@ using TshirtChallenge.Domain.Entities;
 
 namespace TshirtChallenge.Domain.Validations
 {
-    public class TshirtImageValidation : AbstractValidator<Image>
+    public class ImageValidation : AbstractValidator<Image>
     {
-        public TshirtImageValidation()
+        public ImageValidation()
         {
             RuleFor(x => x.Data)
                 .NotEmpty().WithMessage("Image Path should be informed.");
