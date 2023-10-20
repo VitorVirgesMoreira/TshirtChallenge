@@ -9,6 +9,7 @@ namespace TshirtChallenge.API.DependencyInjection.Application
         {
             services.AddScoped<ITshirtService, TshirtService>();
             services.AddScoped<ITypeService, TypeService>();
+            services.AddScoped<IImageService, ImageService>();
         }
     }
 }

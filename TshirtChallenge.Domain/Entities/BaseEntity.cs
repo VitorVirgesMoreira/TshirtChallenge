@@ -11,7 +11,11 @@ namespace TshirtChallenge.Domain.Entities
         public DateTime CreatedAt { get; private set; }
         protected abstract IValidator _validator { get; }
 
-        public void Delete() => Deleted = true;
+        public void Delete()
+        {
+            Deleted = true;
+            UpdatedAt = DateTime.Now;
+        }
 
         public void ValidateEntity()
         {
