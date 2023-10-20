@@ -9,13 +9,12 @@ namespace TshirtChallenge.Domain.Entities
         public string Name { get; protected set; }
         public IEnumerable<Type> Types { get; protected set; }
 
-        [NotMapped] 
+        [NotMapped]
         protected override IValidator _validator => new TshirtValidation();
 
-        public Tshirt(string name, IEnumerable<Type> types) : base()
+        public Tshirt(string name) : base()
         {
             Name = name;
-            Types = types;
         }
     }
 }

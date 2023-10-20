@@ -10,10 +10,6 @@ namespace TshirtChallenge.Domain.Validations
             RuleFor(x => x.Name)
                 .NotEmpty().WithMessage("Name should be informed.")
                 .MaximumLength(100).WithMessage("The name must contain a maximum of 100 characters.");
-
-            RuleFor(x => x.Types)
-                .Must(x => x != null && x.Any())
-                .WithMessage("Types should be informed.");
         }
     }
 }

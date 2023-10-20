@@ -3,16 +3,12 @@ using TshirtChallenge.Domain.Entities;
 
 namespace TshirtChallenge.Domain.Validations
 {
-    public class TshirtImageValidation : AbstractValidator<TshirtImage>
+    public class TshirtImageValidation : AbstractValidator<Image>
     {
         public TshirtImageValidation()
         {
-            RuleFor(x => x.ImagePath)
+            RuleFor(x => x.Data)
                 .NotEmpty().WithMessage("Image Path should be informed.");
-
-            RuleFor(x => x.Type)
-                .Must(x => x != null)
-                .WithMessage("Type should be informed.");
         }
     }
 }

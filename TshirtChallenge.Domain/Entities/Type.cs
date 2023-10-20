@@ -10,7 +10,7 @@ namespace TshirtChallenge.Domain.Entities
         public string Fabric { get; protected set; }
         public Guid TshirtId { get; set; }
         public Tshirt Tshirt { get; set; }
-        public List<TshirtImage> TshirtImages { get; set; }
+        public List<Image> TshirtImages { get; set; }
 
         [NotMapped]
         protected override IValidator _validator => new TypeValidation();

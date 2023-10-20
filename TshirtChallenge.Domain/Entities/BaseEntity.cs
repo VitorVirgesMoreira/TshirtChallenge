@@ -5,8 +5,8 @@ namespace TshirtChallenge.Domain.Entities
 {
     public abstract class BaseEntity
     {
-        public Guid Id { get; protected set; }
-        public bool Deleted { get; protected set; }
+        public Guid Id { get; set; }
+        public bool Deleted { get; set; }
         public DateTime UpdatedAt { get; protected set; }
         public DateTime CreatedAt { get; private set; }
         protected abstract IValidator _validator { get; }
@@ -22,7 +22,6 @@ namespace TshirtChallenge.Domain.Entities
 
         protected BaseEntity()
         {
-            Id = Guid.NewGuid();
             CreatedAt = DateTime.Now;
         }
     }

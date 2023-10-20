@@ -4,18 +4,18 @@ using TshirtChallenge.Domain.Validations;
 
 namespace TshirtChallenge.Domain.Entities
 {
-    public class TshirtImage : BaseEntity
+    public class Image : BaseEntity
     {
-        public string ImagePath { get; set; }
+        public byte[] Data { get; set; }
         public Guid TypeId { get; set; }
         public virtual Type Type { get; set; }
 
         [NotMapped]
         protected override IValidator _validator => new TshirtImageValidation();
 
-        public TshirtImage(string imagePath, Guid typeId) : base()
+        public Image(byte[] data, Guid typeId) : base()
         {
-            ImagePath = imagePath;
+            Data = data;
             TypeId = typeId;
         }
     }
