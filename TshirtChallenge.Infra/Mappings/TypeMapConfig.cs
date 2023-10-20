@@ -10,8 +10,10 @@ namespace TshirtChallenge.Repository.Mappings
         {
             builder.ToTable("Types");
 
+            builder.HasKey(x => x.Id);
+
             builder.Property(x => x.Id)
-                .UseIdentityColumn();
+                .ValueGeneratedOnAdd();
 
             builder.Property(x => x.Color)
                 .IsRequired();

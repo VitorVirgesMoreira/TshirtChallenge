@@ -4,16 +4,18 @@ using TshirtChallenge.Domain.Entities;
 
 namespace TshirtChallenge.Repository.Mappings
 {
-    public class TshirtImageMapConfig : IEntityTypeConfiguration<TshirtImage>
+    public class TshirtImageMapConfig : IEntityTypeConfiguration<Image>
     {
-        public void Configure(EntityTypeBuilder<TshirtImage> builder)
+        public void Configure(EntityTypeBuilder<Image> builder)
         {
             builder.ToTable("TshirtImages");
 
-            builder.Property(x => x.Id)
-               .UseIdentityColumn();
+            builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.ImagePath)
+            builder.Property(x => x.Id)
+                .ValueGeneratedOnAdd();
+
+            builder.Property(x => x.Data)
                 .IsRequired();
 
             builder.HasOne(e => e.Type)

@@ -10,8 +10,10 @@ namespace TshirtChallenge.Repository.Mappings
         {
             builder.ToTable("Tshirts");
 
+            builder.HasKey(x => x.Id);
+
             builder.Property(x => x.Id)
-                .UseIdentityColumn();
+                .ValueGeneratedOnAdd();
 
             builder.Property(x => x.Name)
                 .HasMaxLength(100)
