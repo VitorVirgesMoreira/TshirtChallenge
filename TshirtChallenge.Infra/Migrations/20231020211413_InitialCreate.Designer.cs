@@ -12,7 +12,7 @@ using TshirtChallenge.Infra.Context;
 namespace TshirtChallenge.Infra.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20231020191603_InitialCreate")]
+    [Migration("20231020211413_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -115,7 +115,7 @@ namespace TshirtChallenge.Infra.Migrations
             modelBuilder.Entity("TshirtChallenge.Domain.Entities.Image", b =>
                 {
                     b.HasOne("TshirtChallenge.Domain.Entities.Type", "Type")
-                        .WithMany("TshirtImages")
+                        .WithMany("Images")
                         .HasForeignKey("TypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -141,7 +141,7 @@ namespace TshirtChallenge.Infra.Migrations
 
             modelBuilder.Entity("TshirtChallenge.Domain.Entities.Type", b =>
                 {
-                    b.Navigation("TshirtImages");
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }
