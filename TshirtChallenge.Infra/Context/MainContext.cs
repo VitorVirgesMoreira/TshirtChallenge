@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using TshirtChallenge.Repository.Mappings;
+using TshirtChallenge.Infra.Mappings;
 
-namespace TshirtChallenge.Repository.Context
+namespace TshirtChallenge.Infra.Context
 {
     public class MainContext : DbContext
     {

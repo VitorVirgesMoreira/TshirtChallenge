@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TshirtChallenge.Domain.Entities;
 using TshirtChallenge.Domain.Interfaces.Repositories;
-using TshirtChallenge.Repository.Context;
+using TshirtChallenge.Infra.Context;
 
-namespace TshirtChallenge.Repository.Repositories
+namespace TshirtChallenge.Infra.Repositories
 {
     public abstract class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {

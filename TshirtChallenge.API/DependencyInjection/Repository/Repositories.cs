@@ -1,4 +1,4 @@
-﻿namespace TshirtChallenge.Web.DependencyInjection.Repository
+﻿namespace TshirtChallenge.API.DependencyInjection.Repository
 {
     public class Repositories
     {

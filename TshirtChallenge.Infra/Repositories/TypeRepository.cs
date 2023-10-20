@@ -1,6 +1,5 @@
 ﻿using TshirtChallenge.Domain.Interfaces.Repositories;
-using TshirtChallenge.Repository.Context;
-using TshirtChallenge.Repository.Repositories;
+using TshirtChallenge.Infra.Context;
 using Type = TshirtChallenge.Domain.Entities.Type;
 
 namespace TshirtChallenge.Infra.Repositories

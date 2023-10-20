@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using TshirtChallenge.Domain.Entities;
 
-namespace TshirtChallenge.Repository.Mappings
+namespace TshirtChallenge.Infra.Mappings
 {
     public class TshirtMapConfig : IEntityTypeConfiguration<Tshirt>
     {

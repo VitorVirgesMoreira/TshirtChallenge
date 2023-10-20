@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Type = TshirtChallenge.Domain.Entities.Type;
 
-namespace TshirtChallenge.Repository.Mappings
+namespace TshirtChallenge.Infra.Mappings
 {
     public class TypeMapConfig : IEntityTypeConfiguration<Type>
     {

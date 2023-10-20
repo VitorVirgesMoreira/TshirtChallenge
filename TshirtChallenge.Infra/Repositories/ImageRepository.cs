@@ -1,7 +1,7 @@
 ﻿using TshirtChallenge.Domain.Entities;
 using TshirtChallenge.Domain.Interfaces.Repositories;
-using TshirtChallenge.Repository.Context;
-using TshirtChallenge.Repository.Repositories;
+using TshirtChallenge.Infra.Context;
+using TshirtChallenge.Infra.Repositories;
 
 namespace TshirtChallenge.Infra.Repositories
 {

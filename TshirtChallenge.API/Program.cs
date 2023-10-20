@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TshirtChallenge.Repository.Context;
+using TshirtChallenge.Infra.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 

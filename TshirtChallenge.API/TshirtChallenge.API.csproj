@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TshirtChallenge.Repository\TshirtChallenge.Infra.csproj" />
+    <ProjectReference Include="..\TshirtChallenge.Infra\TshirtChallenge.Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>
