@@ -41,14 +41,14 @@ namespace TshirtChallenge.Infra.Migrations
                     b.Property<Guid>("TypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TypeId");
 
-                    b.ToTable("TshirtImages", (string)null);
+                    b.ToTable("Images", (string)null);
                 });
 
             modelBuilder.Entity("TshirtChallenge.Domain.Entities.Tshirt", b =>
@@ -68,7 +68,7 @@ namespace TshirtChallenge.Infra.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -99,7 +99,7 @@ namespace TshirtChallenge.Infra.Migrations
                     b.Property<Guid>("TshirtId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

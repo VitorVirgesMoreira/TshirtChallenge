@@ -19,7 +19,7 @@ namespace TshirtChallenge.Infra.Context
 
             modelBuilder.ApplyConfiguration(new TshirtMapConfig());
             modelBuilder.ApplyConfiguration(new TypeMapConfig());
-            modelBuilder.ApplyConfiguration(new TshirtImageMapConfig());
+            modelBuilder.ApplyConfiguration(new ImageMapConfig());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

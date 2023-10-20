@@ -4,18 +4,19 @@ using TshirtChallenge.Domain.Entities;
 
 namespace TshirtChallenge.Infra.Mappings
 {
-    public class TshirtImageMapConfig : IEntityTypeConfiguration<Image>
+    public class ImageMapConfig : IEntityTypeConfiguration<Image>
     {
         public void Configure(EntityTypeBuilder<Image> builder)
         {
-            builder.ToTable("TshirtImages");
+            builder.ToTable("Images");
 
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Id)
                 .ValueGeneratedOnAdd();
 
-            builder.Property(x => x.Data)
+            builder.Property(i => i.Data)
+                .HasColumnType("varbinary(max)")
                 .IsRequired();
 
             builder.HasOne(e => e.Type)

@@ -7,7 +7,7 @@ namespace TshirtChallenge.Domain.Entities
     {
         public Guid Id { get; set; }
         public bool Deleted { get; set; }
-        public DateTime UpdatedAt { get; protected set; }
+        public DateTime? UpdatedAt { get; protected set; }
         public DateTime CreatedAt { get; private set; }
         protected abstract IValidator _validator { get; }
 

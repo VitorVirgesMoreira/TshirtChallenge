@@ -12,7 +12,7 @@ using TshirtChallenge.Infra.Context;
 namespace TshirtChallenge.Infra.Migrations
 {
     [DbContext(typeof(MainContext))]
-    [Migration("20231020175308_InitialCreate")]
+    [Migration("20231020191603_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -44,14 +44,14 @@ namespace TshirtChallenge.Infra.Migrations
                     b.Property<Guid>("TypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TypeId");
 
-                    b.ToTable("TshirtImages", (string)null);
+                    b.ToTable("Images", (string)null);
                 });
 
             modelBuilder.Entity("TshirtChallenge.Domain.Entities.Tshirt", b =>
@@ -71,7 +71,7 @@ namespace TshirtChallenge.Infra.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -102,7 +102,7 @@ namespace TshirtChallenge.Infra.Migrations
                     b.Property<Guid>("TshirtId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("UpdatedAt")
+                    b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

@@ -1,5 +1,5 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using TshirtChallenge.Infra.Seeds;
 
 #nullable disable
 
@@ -18,7 +18,7 @@ namespace TshirtChallenge.Infra.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -35,7 +35,7 @@ namespace TshirtChallenge.Infra.Migrations
                     Fabric = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TshirtId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -50,21 +50,21 @@ namespace TshirtChallenge.Infra.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TshirtImages",
+                name: "Images",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Data = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
                     TypeId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Deleted = table.Column<bool>(type: "bit", nullable: false),
-                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TshirtImages", x => x.Id);
+                    table.PrimaryKey("PK_Images", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TshirtImages_Types_TypeId",
+                        name: "FK_Images_Types_TypeId",
                         column: x => x.TypeId,
                         principalTable: "Types",
                         principalColumn: "Id",
@@ -72,21 +72,24 @@ namespace TshirtChallenge.Infra.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_TshirtImages_TypeId",
-                table: "TshirtImages",
+                name: "IX_Images_TypeId",
+                table: "Images",
                 column: "TypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Types_TshirtId",
                 table: "Types",
                 column: "TshirtId");
+
+            new TshirtSeed().InsertData(migrationBuilder);
+            new TypeSeed().InsertData(migrationBuilder);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TshirtImages");
+                name: "Images");
 
             migrationBuilder.DropTable(
                 name: "Types");
