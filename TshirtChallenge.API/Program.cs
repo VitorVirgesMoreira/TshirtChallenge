@@ -1,21 +1,21 @@
 using Microsoft.EntityFrameworkCore;
+using TshirtChallenge.API.DependencyInjection.Application;
+using TshirtChallenge.API.DependencyInjection.Repository;
 using TshirtChallenge.Infra.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<MainContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
+builder.Services.AddDbContext<MainContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+new Repositories().AddRepositoriesDependencyInjection(builder.Services);
+new Services().AddServicesDependencyInjection(builder.Services);
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

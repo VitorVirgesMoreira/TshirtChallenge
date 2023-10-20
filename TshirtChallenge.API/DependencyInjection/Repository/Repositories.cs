@@ -1,11 +1,15 @@
-﻿namespace TshirtChallenge.API.DependencyInjection.Repository
+﻿using TshirtChallenge.Domain.Interfaces.Repositories;
+using TshirtChallenge.Infra.Repositories;
+
+namespace TshirtChallenge.API.DependencyInjection.Repository
 {
     public class Repositories
     {
         public void AddRepositoriesDependencyInjection(IServiceCollection services)
         {
-            //services.AddScoped<IGameRepository, GameRepository>();
-            //services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IImageRepository, ImageRepository>();
+            services.AddScoped<ITshirtRepository, TshirtRepository>();
+            services.AddScoped<ITypeRepository, TypeRepository>();
         }
     }
 }
