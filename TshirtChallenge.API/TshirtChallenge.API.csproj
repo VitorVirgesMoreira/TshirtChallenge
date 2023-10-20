@@ -16,11 +16,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TshirtChallenge.Application\TshirtChallenge.Application.csproj" />
     <ProjectReference Include="..\TshirtChallenge.Infra\TshirtChallenge.Infra.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

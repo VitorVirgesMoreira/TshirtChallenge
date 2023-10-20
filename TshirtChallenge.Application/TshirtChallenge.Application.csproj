@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\ImageModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TshirtChallenge.Infra\TshirtChallenge.Infra.csproj" />
+  </ItemGroup>
+
 </Project>
