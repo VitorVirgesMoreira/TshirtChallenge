@@ -1,10 +1,14 @@
-﻿namespace TshirtChallenge.API.DependencyInjection.Application
+﻿using TshirtChallenge.Application.Services;
+using TshirtChallenge.Application.Services.Interfaces;
+
+namespace TshirtChallenge.API.DependencyInjection.Application
 {
     public class Services
     {
         public void AddServicesDependencyInjection(IServiceCollection services)
         {
-            //AddScope for applications here
+            services.AddScoped<ITshirtService, TshirtService>();
+            services.AddScoped<ITypeService, TypeService>();
         }
     }
 }
