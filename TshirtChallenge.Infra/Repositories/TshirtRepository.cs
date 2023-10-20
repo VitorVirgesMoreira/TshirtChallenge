@@ -14,8 +14,8 @@ namespace TshirtChallenge.Infra.Repositories
         public async Task<IEnumerable<Tshirt>> GetAllWithIncludes()
         {
             return await Query()
-                            .Include(x => x.Types)
-                            .ThenInclude(x => x.TshirtImages)
+                            .Include(x => x.Types.Where(y => !y.Deleted))
+                            .ThenInclude(x => x.Images.Where(y => !y.Deleted))
                             .ToListAsync();
         }
     }
