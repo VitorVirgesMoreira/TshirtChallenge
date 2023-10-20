@@ -21,7 +21,7 @@ namespace TshirtChallenge.Application.Services
                 tshirt.Name,
                 tshirt.Types.Sum(type => type.Color != null ? 1 : 0),
                 tshirt.Types.Sum(type => type.Fabric != null ? 1 : 0),
-                tshirt.Types.Select(type => type.TshirtImages.Count()).FirstOrDefault()
+                tshirt.Types.Sum(type => type.Images.Count())
             ));
         }
     }
